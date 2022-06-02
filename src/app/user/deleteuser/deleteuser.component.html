@@ -1,0 +1,17 @@
+<div id="myModal" class="modal fade">
+	<div class="modal-dialog modal-confirm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="icon-box">
+					<i class="material-icons">&#xE5CD;</i>
+				</div>
+				<h4 dir="rtl" class="modal-title">آیا از حذف {{username}} مطمئن هستید؟</h4>
+			</div>
+
+			<div class="modal-footer">
+				<button type="button" class="btn btn-info" data-dismiss="modal" mat-dialog-close>لغو</button>
+				<button type="button" class="btn btn-danger" (click)="deleteUser()" mat-dialog-close>حذف</button>
+			</div>
+		</div>
+	</div>
+</div>

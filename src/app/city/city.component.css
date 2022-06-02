@@ -1,0 +1,78 @@
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-elevation-z9{
+  font-size: 14px;
+  width: 100%;
+}
+
+.filter_input{
+  width: 10%;
+  right: 1%;
+  display: block;
+
+
+}
+
+.mat-elevation-z8{
+  margin: 5% 5% 5% 5%;
+  background: white;
+}
+
+.content{
+  margin: 15% auto 15% auto;
+  /*border: 1px solid #888;*/
+
+}
+
+
+
+.title{
+  color: blue;
+  padding: 1%;
+
+}
+
+.example-button-row button{
+  margin-right: 8px;
+}
+.addUser_button{
+  right: 83%;
+  margin-right: 8px;
+  font-size: large;
+  display: block;
+}
+.menu_button{
+  display: block;
+  margin-right: auto;
+}
+
+.activeUser{
+  color: cornflowerblue;
+}
+
+.deactiveUser{
+  color: #c1c1c1;
+}
+
+.provinceInput{
+  width: 30%;
+  margin: 8px;
+}
+
+.createCityButton{
+  right: 83%;
+    margin-right: 8px;
+    font-size: large;
+    display: block;
+}
+
+.exportCityButton{
+  right: 83%;
+    margin-right: 8px;
+    font-size: large;
+    display: block;
+}

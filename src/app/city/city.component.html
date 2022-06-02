@@ -1,0 +1,47 @@
+<div dir="rtl" class="content">
+
+
+  <div class="mat-elevation-z8">
+    <h1 class="title">لیست شهر ها</h1>
+
+    <form [formGroup]="addProvinceForm">
+
+
+      <mat-form-field class="provinceInput" appearance="outline">
+        <mat-label>استان</mat-label>
+        <mat-select formControlName="province" (selectionChange)="getProvinceID($event)">
+          <mat-option *ngFor="let province of provinces"
+                      [value]="province.value">
+            {{province.viewValue}}
+          </mat-option>
+        </mat-select>
+
+      </mat-form-field>
+      <button class="createCityButton" mat-raised-button color="primary" (click)="openAddCity()">ایجاد شهر</button>
+      <button mat-raised-button color="primary" (click)="exportAsXLSX()" class="exportCityButton">خروجی اکسل</button>
+      <button mat-raised-button color="primary" (click)="upload_excel.click()" class="exportCityButton">ورودی اکسل</button>
+      <input type="file" #upload_excel style="display: none" (change)="importAsXLSX($event)">
+    </form>
+
+
+    <table mat-table [dataSource]="dataSource1" class="mat-elevation-z9">
+      <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
+        <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+        <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+      <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+    </table>
+
+    <mat-paginator [length]="length"
+                   [pageSize]="5"
+                   showFirstLastButtons
+                   (page)="onChangePage($event)"
+    >
+
+    </mat-paginator>
+
+  </div>
+
+</div>

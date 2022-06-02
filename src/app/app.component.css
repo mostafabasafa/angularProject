@@ -1,0 +1,15 @@
+.content{
+  background: lightcyan;
+}
+.mat-menu-item{
+
+}
+ngx-gallery >>> ngx-gallery-image .ngx-gallery-arrow {
+    /* your styles */
+}
+ngx-gallery >>> ngx-gallery-thumbnails .ngx-gallery-arrow {
+    /* your styles */
+}
+ngx-gallery >>> ngx-gallery-preview .ngx-gallery-arrow {
+    /* your styles */
+}

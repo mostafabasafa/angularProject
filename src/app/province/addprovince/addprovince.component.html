@@ -1,0 +1,22 @@
+<form dir="rtl" [formGroup]="addProvinceForm">
+  <h1 *ngIf="state== 'add'">افزودن استان</h1>
+  <h1 *ngIf="state== 'preview'">پیش نمایش استان</h1>
+  <h1 *ngIf="state== 'edit'">ویرایش استان</h1>
+
+  <hr>
+  <mat-form-field appearance="outline" class="provinceInput">
+    <mat-label>استان</mat-label>
+    <input matInput placeholder="لطفا استان را وارد کنید" formControlName="province">
+
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="provinceInput">
+    <mat-label>مساحت</mat-label>
+    <input matInput placeholder="لطفا استان را وارد کنید" formControlName="area" >
+  </mat-form-field>
+  <!--  <mat-label>مساحت : {{areaCalculated}}</mat-label>-->
+  <div id="map" class="map"></div>
+
+  <button mat-raised-button color="primary" (click)="createProvince()" *ngIf="state== 'add'">ثبت</button>
+  <button mat-raised-button color="primary" (click)="editProvince()" *ngIf="state== 'edit'">ویرایش</button>
+</form>
