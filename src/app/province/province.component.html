@@ -1,0 +1,65 @@
+<div dir="rtl" class="content">
+
+
+  <div class="mat-elevation-z8">
+    <h1 class="title">لیست استان ها</h1>
+
+<table>
+  <tr class="button-row">
+    <button mat-stroked-button color="primary" (click)="openAddProvince()" >ایجاد استان</button>
+      <button mat-stroked-button color="primary" (click)="exportAsXLSX()" >خروجی اکسل</button>
+      <button mat-stroked-button color="primary" (click)="upload_excel.click()">ورودی اکسل</button>
+      <input type="file" #upload_excel style="display: none" (change)="importAsXLSX($event)">
+      </tr>
+</table>
+
+    <table mat-table [dataSource]="dataSource1" class="mat-elevation-z9">
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ردیف</th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="province">
+        <th mat-header-cell *matHeaderCellDef> استان</th>
+        <td mat-cell *matCellDef="let element">
+          {{element.province}}
+        </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="management">
+        <th mat-header-cell *matHeaderCellDef> مدیریت</th>
+        <td mat-cell *matCellDef="let element">
+          <button (click)="openpreviewProvince(element.id)" mat-icon-button
+                  aria-label="Example icon-button with a heart icon">
+            <mat-icon>tv</mat-icon>
+          </button>
+          <button (click)="openEditPtovince(element.id)" mat-icon-button color="primary"
+                  aria-label="Example icon-button with a heart icon">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button (click)="openDeleteProvince(element.id, element.province)" mat-icon-button color="warn"
+                  aria-label="Example icon-button with a heart icon">
+            <mat-icon>delete</mat-icon>
+          </button>
+
+        </td>
+
+      </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+    <mat-paginator [length]="length"
+                   [pageSize]="5"
+                   showFirstLastButtons
+                   (page)="onChangePage($event)"
+    >
+
+    </mat-paginator>
+  </div>
+
+</div>

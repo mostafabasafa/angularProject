@@ -1,0 +1,109 @@
+<div dir="rtl" class="content" (contextmenu)="onRightClick(0,$event)">
+
+
+  <div class="mat-elevation-z8">
+    <h1 class="title">لیست کاربران</h1>
+
+
+    <div (contextmenu)="onRightClick(1,$event)">
+      <mat-form-field class="filter_input">
+        <mat-icon matPrefix>search</mat-icon>
+        <input matInput (keyup)="applyFilter($event)" type="search" placeholder="جتسجو" #input>
+      </mat-form-field>
+
+
+      <button mat-stroked-button class="addUser_button" color="primary" (click)="openAddUser()">جدید</button>
+
+    </div>
+
+    <table mat-table [dataSource]="dataSource1" class="mat-elevation-z9">
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ردیف</th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="userName">
+        <th mat-header-cell *matHeaderCellDef> نام</th>
+        <td mat-cell *matCellDef="let element"> {{element.userName}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="birthDay">
+        <th mat-header-cell *matHeaderCellDef> تاریخ تولد</th>
+        <td mat-cell *matCellDef="let element"> {{element.birthDay}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="gender">
+        <th mat-header-cell *matHeaderCellDef> جنسیت</th>
+        <td mat-cell *matCellDef="let element">
+          <div *ngIf="element.gender==1">مرد</div>
+          <div *ngIf="element.gender==2">زن</div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="province">
+        <th mat-header-cell *matHeaderCellDef> استان</th>
+        <td mat-cell *matCellDef="let element">
+          {{element.province}}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="city">
+        <th mat-header-cell *matHeaderCellDef> شهر</th>
+        <td mat-cell *matCellDef="let element"> {{element.city}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="activity">
+        <th mat-header-cell *matHeaderCellDef> فعالیت</th>
+        <td mat-cell *matCellDef="let element">
+          <mat-icon class="activeUser" *ngIf="element.activity==true">person</mat-icon>
+          <mat-icon class="deactiveUser" *ngIf="element.activity==false">person</mat-icon>
+        </td>
+
+
+      </ng-container>
+
+      <ng-container matColumnDef="management">
+        <th mat-header-cell *matHeaderCellDef> مدیریت</th>
+        <td mat-cell *matCellDef="let element">
+          <button (click)="openEditUser(element.id, element.province)" mat-icon-button color="primary"
+                  aria-label="Example icon-button with a heart icon">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button (click)="openDeleteUser(element.id, element.userName)" mat-icon-button color="warn"
+                  aria-label="Example icon-button with a heart icon">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+
+      </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      </tr>
+    </table>
+
+
+
+    <mat-paginator [length]="length"
+                   [pageSize]="5"
+                   showFirstLastButtons
+                   (page)="onChangePage($event)"
+    >
+
+    </mat-paginator>
+
+
+  </div>
+
+</div>

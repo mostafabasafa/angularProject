@@ -1,0 +1,39 @@
+<form dir="rtl" [formGroup]="addcityForm">
+  <h1 *ngIf="state== 'add'">افزودن استان</h1>
+  <h1 *ngIf="state== 'preview'">پیش نمایش استان</h1>
+  <h1 *ngIf="state== 'edit'">ویرایش استان</h1>
+
+  <hr>
+
+  <mat-form-field appearance="outline" class="provinceInput">
+    <mat-label>شهر</mat-label>
+    <input matInput placeholder="لطفا شهر را وارد کنید" formControlName="city">
+    <!--    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>-->
+    <!--    <mat-hint>Hint</mat-hint>-->
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>استان</mat-label>
+    <input matInput placeholder="لطفا شهر را وارد کنید" formControlName="province" *ngIf="state== 'preview'">
+    <mat-select [compareWith]="checkProvince" (selectionChange)="getProvinceID($event)" formControlName="province"
+                *ngIf="state != 'preview'">
+      <mat-option *ngFor="let province of provinces"
+                  [value]="province">
+        {{province.viewValue}}
+      </mat-option>
+    </mat-select>
+
+  </mat-form-field>
+  <button mat-raised-button color="warn" (click)="removeFeature()" *ngIf="state== 'edit'">حذف لایه</button>
+
+
+  <div id="map" class="map"></div>
+
+  <button mat-raised-button color="primary" (click)="createCity()" *ngIf="state== 'add'"
+          [disabled]="!addcityForm.valid">ثبت
+  </button>
+  <button mat-raised-button color="primary" (click)="editCity()" *ngIf="state== 'edit'" [disabled]="!addcityForm.valid">
+    ویرایش
+  </button>
+  <button mat-raised-button color="warn" mat-dialog-close>بستن</button>
+
+</form>

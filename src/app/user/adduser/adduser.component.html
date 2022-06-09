@@ -1,0 +1,96 @@
+<div id="01" class="modal">
+  <form [formGroup]="addUserForm" dir="rtl">
+    <h1>افزودن کاربر</h1>
+    <hr>
+    <table>
+      <tr>
+        <mat-form-field appearance="outline">
+          <mat-label>نام کاربری</mat-label>
+          <input matInput placeholder="نام کاربری را وارد کنید" formControlName="userName" class="form-control"
+                 [ngClass]="{'is-invalid': submitted}">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+
+<!--        <mat-form-field appearance="outline">-->
+<!--          <mat-label>تاریخ تولد</mat-label>-->
+<!--          <input matInput [matDatepicker]="picker" placeholder="تاریخ تولد را وارد کنید" formControlName="birthDay">-->
+<!--          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>-->
+<!--          <mat-datepicker #picker></mat-datepicker>-->
+<!--        </mat-form-field>-->
+
+        <mat-form-field appearance="outline">
+    <input matInput [matDatepicker]="picker6" placeholder="تاریخ تولد را وارد کنید" formControlName="birthDay">
+    <mat-datepicker-toggle matSuffix [for]="picker6"></mat-datepicker-toggle>
+    <mat-datepicker #picker6></mat-datepicker>
+</mat-form-field>
+
+        <label>جنسیت: </label>
+        <mat-radio-group formControlName="gender" aria-label="Select an option">
+          <mat-radio-button value="1" checked>مرد</mat-radio-button>
+          <mat-radio-button value="2">زن</mat-radio-button>
+        </mat-radio-group>
+      </tr>
+      <tr>
+        <mat-form-field appearance="outline">
+          <mat-label>کلمه عبور</mat-label>
+          <input matInput id="password" formControlName="password" [type]="hide ? 'password' : 'text'"
+                 placeholder="کلمه عبور را وارد کنید">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>تکرار کلمه عبور</mat-label>
+          <input matInput id="confirm_password" formControlName="confirm_password"
+                 [type]="hide ? 'password' : 'text'" placeholder="تکرار کلمه عبور را وارد کنید">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide">
+            <!--            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>-->
+          </button>
+          <mat-error
+            *ngIf="addUserForm.controls['confirm_password'].pristine || addUserForm.controls['confirm_password'].errors?.['MatchPassword']"
+          >کلمه عبور مطابقت ندارد</mat-error>
+        </mat-form-field>
+
+        <mat-label>فعالیت:</mat-label>
+        <mat-checkbox formControlName="activity">فعال</mat-checkbox>
+      </tr>
+      <tr>
+        <!--        <mat-form-field appearance="fill">-->
+        <!--          <mat-label>Favorite food</mat-label>-->
+        <!--          <mat-select>-->
+        <!--            <mat-option *ngFor="let food of foods" [value]="food.value">-->
+        <!--              {{food.viewValue}}-->
+        <!--            </mat-option>-->
+        <!--          </mat-select>-->
+        <!--        </mat-form-field>-->
+        <mat-form-field appearance="outline">
+          <mat-label>استان</mat-label>
+          <mat-select formControlName="province" (selectionChange)="getProvinceID($event)">
+            <mat-option *ngFor="let province of provinces"
+                        [value]="province.value">
+              {{province.viewValue}}
+            </mat-option>
+          </mat-select>
+
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>شهر</mat-label>
+          <mat-select formControlName="city">
+            <mat-option *ngFor="let city of cities"
+                        [value]="city.value">
+              {{city.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </tr>
+      <tr>
+        <button mat-stroked-button color="primary" (click)="createUser()" mat-dialog-close>افزودن</button>
+        <button mat-stroked-button color="warn" mat-dialog-close>انصراف</button>
+      </tr>
+    </table>
+  </form>
+</div>
