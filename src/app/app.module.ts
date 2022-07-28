@@ -24,6 +24,12 @@ import { AddprovinceComponent } from './province/addprovince/addprovince.compone
 import {ExcelService} from "./_services/excel.service";
 import { ChatroomComponent } from './chatroom/chatroom.component';
 import { MapComponent } from './province/map/map.component';
+import {ChartModule} from "angular-highcharts";
+import {HighchartsChartModule} from "highcharts-angular";
+import { LoginComponent } from './account/login/login.component';
+import { RegisterComponent } from './account/register/register.component';
+import { LayoutComponent } from './account/layout/layout.component';
+import {AccountModule} from "./account/account.module";
 
 
 // @ts-ignore
@@ -39,24 +45,29 @@ import { MapComponent } from './province/map/map.component';
     AddcityComponent,
     AddprovinceComponent,
     ChatroomComponent,
-    MapComponent
+    MapComponent,
+    LoginComponent,
+    RegisterComponent,
+    LayoutComponent
     // ProvinceComponent
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatSliderModule,
-    MatTableModule,
-    BrowserAnimationsModule,
-    BrowserModule,
-    FormsModule,
-    HttpClientModule,
-    MatNativeDateModule,
-    MaterialExampleModule,
-    ReactiveFormsModule,
-    AppRoutingModule,
-    NgxGalleryModule,
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        MatSliderModule,
+        MatTableModule,
+        BrowserAnimationsModule,
+        BrowserModule,
+        FormsModule,
+        HttpClientModule,
+        MatNativeDateModule,
+        MaterialExampleModule,
+        ReactiveFormsModule,
+        AppRoutingModule,
+        NgxGalleryModule,
+        ChartModule,
+        HighchartsChartModule,
+    ],
   providers: [
     ExcelService
   ],

@@ -7,5 +7,6 @@ export class User {
   city!: number | string
   activity!: boolean;
   password!: string;
+  token!: string
 }
 

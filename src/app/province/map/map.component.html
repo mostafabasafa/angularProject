@@ -1,4 +1,13 @@
 
-  <div id="map" class="map"></div>
+<div id="map" class="map"></div>
+<div id="container" class="pieChart"></div>
+<highcharts-chart
+  [Highcharts]="highcharts"
+  [options]="chartOptions"
+  [(update)]="updateFlag"
 
+>
 
+</highcharts-chart>
+
+<!--  <button (click)="handleUpdate()">Update chart</button>-->

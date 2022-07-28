@@ -1,0 +1,28 @@
+form{
+  background: white;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+}
+
+img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+
+button{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+
+.example-full-width{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+}

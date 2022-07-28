@@ -1,0 +1,28 @@
+<form [formGroup]="loginForm" dir="rtl">
+  <table>
+
+    <img src="../../../assets/img_avatar2.png" alt="Avatar" class="avatar"/>
+
+    <tr>
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>نام کاربری</mat-label>
+      <input matInput placeholder="نام کاربری را وارد کنید" value="" name="userName"
+              formControlName="userName">
+    </mat-form-field>
+      </tr>
+    <tr>
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>کلمه عبور</mat-label>
+      <input matInput placeholder="کلمه عبور را وارد کنید" value="" name="password"
+             type="password" formControlName="password">
+    </mat-form-field>
+    </tr>
+    <tr>
+    <button mat-raised-button color="primary" (click)="login()">ورود</button>
+    <button mat-raised-button color="warn">ثبت نام</button>
+
+      </tr>
+<!--    <span> <button mat-button color="accent">Login success !!</button></span>-->
+  </table>
+</form>
+

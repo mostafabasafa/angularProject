@@ -241,7 +241,7 @@ export class AddcityComponent implements OnInit {
         return true
       },
       source: this.cityVecror.getSource(),
-      type: 'Point',
+      type: 'Polygon',
     });
     this.drawCity.on("drawstart", (e) => {
       this.cityVecror.getSource().clear()
